@@ -1,0 +1,36 @@
+.shape-top {
+	position: absolute;
+	right: 0;
+	width: 20vw;
+}
+
+.shape-bottom {
+	position: absolute;
+	bottom: 0;
+	width: 18vw;
+}
+
+.game-title {
+	font-weight: 700;
+	font-size: 2em;
+	text-align: center;
+}
+
+.game-intro {
+    height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.game-intro h1 {
+	margin: 0;
+}
+
+.game-intro p {
+	margin: 2em 0 2em 0;
+	font-family: "Inter", sans-serif;
+	font-weight: 400;
+	font-size: 1em;
+}
