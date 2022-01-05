@@ -34,3 +34,10 @@
 	font-weight: 400;
 	font-size: 1em;
 }
+
+.game-container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
