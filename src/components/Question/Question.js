@@ -1,13 +1,14 @@
 import "./Question.css";
 import { nanoid } from "nanoid";
+import { decode } from 'html-entities';
 
 const Question = props => {
 	const incorrectAnswersElements = props.incorrectAnswers.map(answer => (
-		<button key={nanoid()} className="question-btn">{answer}</button>
+		<button key={nanoid()} className="question-btn">{ decode(answer) }</button>
 	));
 
 	const correctAnswerElement =
-		<button key={nanoid()} className="question-btn">CORRECTA: {props.correctAnswer}</button>
+		<button key={nanoid()} className="question-btn">CORRECTA: { decode(props.correctAnswer) }</button>
 	
 	incorrectAnswersElements.push(correctAnswerElement);
 
@@ -15,8 +16,8 @@ const Question = props => {
 
 	return (
 		<article className="question-container">
-			<h3 className="question-text">{props.question}</h3>
-			{answersElements}
+			<h3 className="question-text">{ decode(props.question) }</h3>
+			{ answersElements }
 		</article>
 	);
 }
