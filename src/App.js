@@ -8,9 +8,7 @@ import shapeBottom from "./assets/images/shape-2.png";
 const App = () => {
 	const [gameStarted, setGameStarted] = useState(false);
 
-	const handleGameStart = () => {
-		setGameStarted(prevState => !prevState);
-	}
+	const handleGameStart = () => setGameStarted(prevState => !prevState);
 
 	return (
 		<main>

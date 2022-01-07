@@ -10,6 +10,10 @@ p, h1, h2, h3 {
 	margin: 0;
 }
 
+img {
+	-webkit-user-drag: none;
+}
+
 .btn-primary {
 	background-color: #4D5B9E;
 	color: #F5F7FB;

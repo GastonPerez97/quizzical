@@ -1,5 +1,5 @@
 .question-container {
-	padding-bottom: 1em;
+	padding-bottom: 10px;
 	margin-bottom: 1em;
 	border-bottom: 0.8px solid #DBDEF0;
 }
@@ -18,7 +18,7 @@
 	font-weight: 500;
 	background-color: #F5F7FB;
 	color: #293264;
-	margin-right: 12px;
+	margin: 0 12px 12px 0;
 }
 
 .question-btn:active {
@@ -34,10 +34,21 @@
 	font-family: "Inter", sans-serif;
 	font-weight: 500;
 	color: #293264;
-	margin-right: 12px;
+	margin: 0 12px 12px 0;
 	background-color: #D6DBF5;
 }
 
 .question-btn-selected:active {
 	box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.30) inset;
+}
+
+.question-btn-correct {
+	background-color: #94D7A2;
+	border: none;
+}
+
+.question-btn-incorrect {
+	background-color: #F8BCBC;
+	opacity: 50%;
+	border: none;
 }

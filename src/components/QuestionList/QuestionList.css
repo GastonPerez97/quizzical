@@ -1,0 +1,31 @@
+.questionList-container {
+	width: 700px;
+	display: flex;
+	flex-direction: column;
+}
+
+.btn-check-answers {
+	align-self: center;
+}
+
+.btn-check-answers-disabled {
+	align-self: center;
+	opacity: 50%;
+	cursor: not-allowed;
+}
+
+.btn-check-answers-disabled:active {
+	box-shadow: none;
+}
+
+.bottom-container {
+	margin-top: 20px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.correct-answers-text {
+	font-family: "Inter", sans-serif;
+	font-weight: 700;
+}
