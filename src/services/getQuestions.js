@@ -1,5 +1,20 @@
-const getQuestions = () => {
-	let apiUrl = "https://opentdb.com/api.php?amount=5";
+const getQuestions = gameOptions => {
+	const { category, difficulty, type } = gameOptions;
+
+	let categoryQueryParam = "";
+	let difficultyQueryParam = "";
+	let typeQueryParam = "";
+
+	if (category !== "")
+		categoryQueryParam = `&category=${category}`;
+
+	if (difficulty !== "")
+		difficultyQueryParam = `&difficulty=${difficulty}`;
+
+	if (type !== "")
+		typeQueryParam = `&type=${type}`;
+
+	let apiUrl = `https://opentdb.com/api.php?amount=5${categoryQueryParam}${difficultyQueryParam}${typeQueryParam}`;
 
 	return fetch(apiUrl)
 		.then(res => res.json())

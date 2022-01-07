@@ -4,7 +4,7 @@ import "./QuestionList.css";
 import Question from "../Question/Question";
 import getQuestions from "../../services/getQuestions";
 
-const QuestionList = () => {
+const QuestionList = ({ gameOptions, handleGameStart }) => {
 	const [questionsArray, setQuestionsArray] = useState([]);
 	const [checkAnswerBtn, setCheckAnswerBtn] = useState(false);
 	const [correctAnswersCount, setCorrectAnswersCount] = useState(0);
@@ -12,8 +12,8 @@ const QuestionList = () => {
 
 	const allQuestionsAnswered = questionsArray.every(question => question.selectedAnswer !== "");
 
-	const getQuestionsFromService = () => {
-		getQuestions().then(questions => setQuestionsArray(
+	useEffect(() => {
+		getQuestions(gameOptions).then(questions => setQuestionsArray(
 			questions.map(question => {
 				return {
 					...question,
@@ -22,9 +22,8 @@ const QuestionList = () => {
 				}
 			})
 		));
-	}
-
-	useEffect(() => getQuestionsFromService(), []);
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
 	useEffect(() => {
 		if (questionsArray.length !== 0 && allQuestionsAnswered) {
@@ -65,9 +64,9 @@ const QuestionList = () => {
 	}
 
 	const resetGame = () => {
-		getQuestionsFromService();
 		setCheckAnswerBtn(false);
 		setIsGameOver(false);
+		handleGameStart();
 	}
 
 	const questionElements = questionsArray.map(question => (
