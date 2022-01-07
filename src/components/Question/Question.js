@@ -1,13 +1,8 @@
 import "./Question.css";
 import { nanoid } from "nanoid";
 import { decode } from 'html-entities';
-import { useState, useEffect } from "react"
 
 const Question = props => {
-	const [sortAnswersArray, setSortAnswersArray] = useState(true);
-
-	useEffect(() => setSortAnswersArray(false), []);
-
 	const incorrectAnswersElements = props.incorrectAnswers.map(answer => {
 		const incorrectAnswerClassName = `
 			${props.selectedAnswer === answer ? "question-btn-selected" : "question-btn"}
@@ -39,14 +34,14 @@ const Question = props => {
 	
 	incorrectAnswersElements.push(correctAnswerElement);
 
-	const answersElements = sortAnswersArray
-		? incorrectAnswersElements.sort(() => Math.random() - 0.5)
-		: incorrectAnswersElements;
+	const sortedAnswerElements = incorrectAnswersElements.sort((a, b) => (
+		a.props.children.localeCompare(b.props.children))
+	);
 
 	return (
 		<article className="question-container">
 			<h3 className="question-text">{ decode(props.question) }</h3>
-			{ answersElements }
+			{ sortedAnswerElements }
 		</article>
 	);
 }

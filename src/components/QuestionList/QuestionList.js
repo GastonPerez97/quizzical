@@ -38,6 +38,7 @@ const QuestionList = () => {
 			setCorrectAnswersCount(correctAnswers);
 			setCheckAnswerBtn(true);
 		}
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [questionsArray]);
 
 
