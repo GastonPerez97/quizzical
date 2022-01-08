@@ -28,4 +28,25 @@
 .correct-answers-text {
 	font-family: "Inter", sans-serif;
 	font-weight: 700;
+	text-align: center;
+}
+
+
+@media screen and (max-width: 770px) {
+	.questionList-container {
+		width: 80vw;
+		margin: 4em auto 2em auto;
+	}
+}
+
+
+@media screen and (max-width: 500px) {
+	.questionList-container {
+		width: 90vw;
+	}
+
+	.correct-answers-text {
+		font-size: 1em;
+		margin-right: 1em;
+	}
 }
