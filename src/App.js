@@ -7,6 +7,7 @@ import shapeBottom from "./assets/images/shape-2.png";
 
 const App = () => {
 	const [gameStarted, setGameStarted] = useState(false);
+	const [showNoQuestionsError, setShowNoQuestionsError] = useState(false);
 	const [gameOptions, setGameOptions] = useState(
 		{
 			category: "",
@@ -17,6 +18,8 @@ const App = () => {
 
 	const handleGameStart = () => setGameStarted(prevState => !prevState);
 
+	const handleNoQuestionsError = boolean => setShowNoQuestionsError(boolean);
+	
 	const handleChange = event => {
 		const { name, value } = event.target;
 
@@ -36,12 +39,22 @@ const App = () => {
 				gameStarted
 				?
 					<section className="game-container">
-						<QuestionList gameOptions={gameOptions} handleGameStart={handleGameStart} />
+						<QuestionList
+							gameOptions={gameOptions}
+							handleGameStart={handleGameStart}
+							handleNoQuestionsError={handleNoQuestionsError}
+						/>
 					</section>
 				:
 					<section className="game-intro">
 						<h1 className="game-title">Quizzical</h1>
 						<p className="game-text">Answer the questions and test your knowledge!</p>
+
+						{showNoQuestionsError &&
+							<h2 className="noQuestions-text">
+								Oops! We couldn't find any questions with these options!
+							</h2>
+						}
 
 						<div className="gameOptions-container">
 							<div className="select-container">

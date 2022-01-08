@@ -4,7 +4,7 @@ import "./QuestionList.css";
 import Question from "../Question/Question";
 import getQuestions from "../../services/getQuestions";
 
-const QuestionList = ({ gameOptions, handleGameStart }) => {
+const QuestionList = ({ gameOptions, handleGameStart, handleNoQuestionsError }) => {
 	const [questionsArray, setQuestionsArray] = useState([]);
 	const [checkAnswerBtn, setCheckAnswerBtn] = useState(false);
 	const [correctAnswersCount, setCorrectAnswersCount] = useState(0);
@@ -13,15 +13,23 @@ const QuestionList = ({ gameOptions, handleGameStart }) => {
 	const allQuestionsAnswered = questionsArray.every(question => question.selectedAnswer !== "");
 
 	useEffect(() => {
-		getQuestions(gameOptions).then(questions => setQuestionsArray(
-			questions.map(question => {
+		getQuestions(gameOptions).then(questions => {
+			if (questions.length === 0) {
+				handleGameStart();
+				handleNoQuestionsError(true);
+				return;
+			} else {
+				handleNoQuestionsError(false);
+			}
+
+			return setQuestionsArray(questions.map(question => {
 				return {
 					...question,
 					id: nanoid(),
 					selectedAnswer: ""
 				}
-			})
-		));
+			}));
+		});
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
