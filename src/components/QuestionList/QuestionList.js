@@ -26,7 +26,8 @@ const QuestionList = ({ gameOptions, handleGameStart, handleNoQuestionsError }) 
 				return {
 					...question,
 					id: nanoid(),
-					selectedAnswer: ""
+					selectedAnswer: "",
+					showAnswer: false
 				}
 			}));
 		});

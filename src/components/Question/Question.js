@@ -1,6 +1,8 @@
 import "./Question.css";
 import { nanoid } from "nanoid";
 import { decode } from 'html-entities';
+import tickIcon from "../../assets/images/tick.svg";
+import crossIcon from "../../assets/images/cross.svg";
 
 const Question = props => {
 	const incorrectAnswersElements = props.incorrectAnswers.map(answer => {
@@ -40,8 +42,17 @@ const Question = props => {
 
 	return (
 		<article className="question-container">
-			<h3 className="question-text">{ decode(props.question) }</h3>
-			{ sortedAnswerElements }
+			<div>
+				<h3 className="question-text">{ decode(props.question) }</h3>
+				{ sortedAnswerElements }
+			</div>
+			
+			{
+				props.showAnswer &&
+					(props.selectedAnswer === props.correctAnswer
+						? <img src={tickIcon} width={35} alt="Tick, correct answer" />
+						: <img src={crossIcon} width={30} alt="Cross, wrong answer" />)
+			}
 		</article>
 	);
 }
