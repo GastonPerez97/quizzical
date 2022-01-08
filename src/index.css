@@ -6,12 +6,28 @@ body {
 	font-family: "Karla", sans-serif;
 }
 
+main {
+	position: relative;
+	min-height: 100vh;
+}
+
 p, h1, h2, h3 {
 	margin: 0;
 }
 
 img {
 	-webkit-user-drag: none;
+}
+
+footer {
+	color: #293264;
+	text-align: center;
+	padding: 2em 0 2em 0;
+	width: 200px;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	margin-left: -100px;
 }
 
 .btn-primary {
@@ -25,6 +41,7 @@ img {
 	height: 50px;
 	border: 0;
 	cursor: pointer;
+	z-index: 100;
 }
 
 .btn-primary:active {

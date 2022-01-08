@@ -134,6 +134,12 @@ const App = () => {
 			}
 
 			<img className="shape-bottom" src={shapeBottom} alt="Shape Bottom" />
+			
+			<footer>Developed by&nbsp;
+				<a href="https://gastonperez.ar/en" target="_blank" rel="noreferrer">
+					Gast&oacute;n P&eacute;rez
+				</a>
+			</footer>
 		</main>
 	);
 }
